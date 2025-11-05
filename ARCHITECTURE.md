@@ -8,12 +8,7 @@
 ---
 
 ## Data Flow Diagram
-1. Client captures pointer events → produces sampled points for a stroke.
-2. Client begins stroke: optimistic local render + start batching.
-3. Client sends `stroke-part` messages regularly (batched points), and final `op` when stroke ends.
-4. Server receives `stroke-part` → broadcasts to other clients in same room so they incrementally render.
-5. Server receives final `op` → appends to authoritative `opLog` and broadcasts `op` to all clients.
-6. Undo/Redo: client sends `undo` or `redo` command → server pops/pushes operations from opLog ↔ undoneStack and broadcasts `undo` / `redo` events to all clients.
+<img width="773" height="1846" alt="data-flow-diagram" src="https://github.com/user-attachments/assets/acdd8a03-08db-48ed-9425-39f7d732418d" />
 
 ---
 
