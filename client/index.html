@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Collaborative Canvas</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <div id="room-info">
+        Room: <input id="room-input" value="default" />
+        <button id="join-btn">Join</button>
+      </div>
+      <div id="user-info">
+        <input id="username" placeholder="Your name" />
+        <label>Color <input type="color" id="color-picker" value="#000000"></label>
+        <label>Stroke <input type="range" id="stroke-width" min="1" max="24" value="4"></label>
+
+        <!-- Tool selector -->
+        <label>Tool
+          <select id="tool-select">
+            <option value="brush">Brush</option>
+            <option value="shape">Shape</option>
+          </select>
+        </label>
+
+        <!-- Shape type chooser -->
+        <label id="shape-type-label" style="display:none">Shape
+          <select id="shape-type">
+            <option value="rect">Rectangle</option>
+            <option value="circle">Circle</option>
+            <option value="line">Line</option>
+          </select>
+        </label>
+
+        <button id="eraser-btn">Eraser</button>
+        <button id="undo-btn">Undo</button>
+        <button id="redo-btn">Redo</button>
+        <span id="latency">—</span>
+      </div>
+    </header>
+
+    <div id="main">
+      <div id="sidebar">
+        <h3>Online</h3>
+        <ul id="users-list"></ul>
+      </div>
+
+      <div id="canvas-wrap">
+        <canvas id="draw-canvas"></canvas>
+      </div>
+    </div>
+
+    <footer>
+      <small>
+        Drag to draw. Made by
+        <a href="https://github.com/alvin-dotcom" target="_blank" rel="noopener noreferrer">
+          alvin-dotcom
+        </a>
+      </small>
+    </footer>
+
+  </div>
+
+  <!-- Username modal -->
+  <div id="name-modal" class="modal">
+    <div class="modal-content">
+      <h2>Welcome</h2>
+      <p>Enter your display name and choose a room to join:</p>
+      <input id="modal-username" placeholder="Your name" style="margin-bottom:10px;" />
+      <input id="modal-room" placeholder="Room name (default)" style="margin-bottom:12px;" />
+      <div>
+        <button id="modal-join">Join</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="websocket.js"></script>
+  <script src="canvas.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>

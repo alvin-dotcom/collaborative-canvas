@@ -1,0 +1,17 @@
+{
+  "name": "collaborative-canvas",
+  "version": "1.0.0",
+  "description": "Real time collaborative drawing canvas (vanilla JS + Node.js + WebSockets)",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.13.0",
+    "uuid": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
